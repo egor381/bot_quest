@@ -1,13 +1,19 @@
 import os
 import telebot
+import logging
 from telebot import types
 from dotenv import load_dotenv
 from quests import *
 
 load_dotenv()
 token = os.getenv('TOKEN')
+logging.basicConfig(level=logging.INFO, filename="bot_quest.log", filemode="a",
+                    format="%(asctime)s %(levelname)s %(message)s")
+
+
 if not token:
-    raise Exception('Не задана переменная окружения TOKEN')
+    logging.error('Не задана переменная окружения TOKEN')
+    exit()
 
 bot = telebot.TeleBot(token)
 quests = Quests()
@@ -188,9 +194,6 @@ def callback_query(call):
     bot.answer_callback_query(call.id)
 
 
-
-
-
 menu_commands = []
 for command in commands:
     if command['command'] and command['description']:
@@ -202,4 +205,5 @@ try:
     bot.set_my_description(quests.get_quest_description())
     bot.polling(non_stop=True)
 except Exception as e:
-    raise Exception(f'Ошибка обращения к Telegram, {e}')
+    logging.error(f'Ошибка обращения к Telegram, {e}')
+    exit()

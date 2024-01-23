@@ -1,4 +1,5 @@
 import json
+import logging
 
 
 class Quest:
@@ -101,12 +102,12 @@ class Quests:
             with open(self.storage_filename, 'r') as f:
                 state = json.load(f)
         except IOError as e:
-            print(f'Ошибка восстановлении состояния квеста при открытии файла {self.storage_filename}, {e}')
+            logging.error(f'Ошибка восстановлении состояния квеста при открытии файла {self.storage_filename}, {e}')
         except json.decoder.JSONDecodeError as e:
-            print(f'Ошибка восстановлении состояния квеста при декодировании файла {self.storage_filename}, {e}')
+            logging.error(f'Ошибка восстановлении состояния квеста при декодировании файла {self.storage_filename}, {e}')
 
         if state:
-            print('load_state: ' + str(state))
+            logging.info('load_state: ' + str(state))
             for item in state:
                 chat_id = item['chat_id']
                 if chat_id not in self.quests:
@@ -121,13 +122,13 @@ class Quests:
                 'chat_id': chat_id,
                 'quest': quest.get_state()
             })
-        print('save_state: ' + str(state))
+        logging.info('save_state: ' + str(state))
 
         try:
             with open(self.storage_filename, 'w') as f:
                 json.dump(state, f)
         except IOError as e:
-            print(f'Ошибка сохранения состояния квеста при открытии файла {self.storage_filename}, {e}')
+            logging.error(f'Ошибка сохранения состояния квеста при открытии файла {self.storage_filename}, {e}')
 
     def load_quest(self):
         try:
@@ -137,6 +138,6 @@ class Quests:
                 self.start_message = data['start_message']
                 self.routes = data['routes']
         except IOError as e:
-            print(f'Ошибка загрузки квеста при открытии файла {self.quest_filename}, {e}')
+            logging.error(f'Ошибка загрузки квеста при открытии файла {self.quest_filename}, {e}')
         except json.decoder.JSONDecodeError as e:
-            print(f'Ошибка загрузки квеста при декодировании файла {self.quest_filename}, {e}')
+            logging.error(f'Ошибка загрузки квеста при декодировании файла {self.quest_filename}, {e}')
