@@ -46,6 +46,7 @@ class Quests:
     def __init__(self):
         self.quest_description = ''
         self.start_message = ''
+        self.start_voice = ''
         self.routes = {}
         self.quests = {}
         self.quest_filename = 'quest.json'
@@ -58,6 +59,9 @@ class Quests:
 
     def get_start_message(self):
         return self.start_message
+
+    def get_start_voice(self):
+        return self.start_voice
 
     def start_quest(self, chat_id):
         if chat_id not in self.quests:
@@ -136,6 +140,7 @@ class Quests:
                 data = json.load(f)
                 self.quest_description = data['quest_description']
                 self.start_message = data['start_message']
+                self.start_voice = data['start_voice']
                 self.routes = data['routes']
         except IOError as e:
             logging.error(f'Ошибка загрузки квеста при открытии файла {self.quest_filename}, {e}')

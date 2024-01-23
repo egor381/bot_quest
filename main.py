@@ -25,9 +25,9 @@ def response_start(message):
     markup.add(types.KeyboardButton('В другой раз'))
 
     bot.send_message(message.chat.id,
-                     text=f'Привет {message.from_user.first_name}, приступим к игре?',
-                     reply_markup=markup
-                     )
+                     text = quests.get_start_message(),
+                     reply_markup=markup)
+    bot.send_voice(message.chat.id, voice = get_file(quests.get_start_voice()))
 
 
 def response_help(message):
@@ -39,7 +39,6 @@ def response_help(message):
 
 
 def response_start_quest(message):
-    bot.send_message(message.chat.id, text=quests.get_start_message())
     start_quest(message.chat.id)
 
 
@@ -87,7 +86,7 @@ def commands_to_string():
     return result
 
 
-def get_image(file_name):
+def get_file(file_name):
     return open(file_name, 'rb')
 
 
@@ -134,9 +133,12 @@ def create_question(chat_id):
                              text=current_route['question'],
                              reply_markup=markup
                              )
-            if current_route['inventory']:
+            if 'inventory' in current_route and current_route['inventory']:
                 bot.send_message(chat_id, text=current_route['inventory'])
-            bot.send_photo(chat_id, photo=get_image(current_route['image']))
+            if 'image' in current_route and current_route['image']:
+                bot.send_photo(chat_id, photo=get_file(current_route['image']))
+            if 'voice' in current_route and current_route['voice']:
+                bot.send_voice(chat_id, voice=get_file(current_route['voice']))
     else:
         unknown_state(chat_id)
 
