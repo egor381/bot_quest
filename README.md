@@ -27,4 +27,4 @@ _[media](https://github.com/egor381/bot_quest/tree/main/media)_ - папка с�
 
 _Сценарий игры:_  
 Сценарий игры построен на основе схемы, представленной ниже.
-![Схема уровней игры](https://github.com/egor381/bot_quest/blob/main/docs/scheme_secret_forest.png?raw=true)
+![Схема уровней игры](https://raw.githubusercontent.com/egor381/bot_quest/main/docs/scheme_secret_forest.png)
