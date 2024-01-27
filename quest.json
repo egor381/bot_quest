@@ -31,6 +31,18 @@
                 {
                     "text": "В шестую",
                     "next_route": "pit"
+                },
+                {
+                    "text": "В седьмую",
+                    "next_route": "enchanted_garden"
+                },
+                {
+                    "text": "В восьмую",
+                    "next_route": "whispering_caves"
+                },
+                {
+                    "text": "В девятую",
+                    "next_route": "celestial_peak"
                 }
             ]
         },
@@ -122,7 +134,7 @@
             "answers": [
                 {
                     "text": "Пролететь на воздушном змее в неизвестность",
-                    "next_route": "success"
+                    "next_route": "enchanted_garden"
                 },
                 {
                     "text": "Пройти по руйнам",
@@ -130,6 +142,53 @@
                 }
             ]
         },
+    "enchanted_garden": {
+        "question": "Иван оказывается в волшебном саду, где царит мир и спокойствие. Но не все так просто, ведь сад полон загадочных растений и животных. Ивану нужно решить загадку, чтобы найти выход.",
+        "image": "media/enchanted_garden.jpeg",
+        "inventory": "",
+        "answers": [
+            {
+                "text": "Использовать телепорт",
+                "next_route": "whispering_caves"
+            },
+            {
+                "text": "Пройти через сад",
+                "next_route": "failed_garden"
+            }
+        ]
+    },
+    "whispering_caves": {
+        "question": "Иван попадает в шепчущие пещеры, где эхо отражает каждый звук. Здесь он должен пройти испытание на внимательность и слух, чтобы найти правильный путь.",
+        "image": "media/whispering_caves.jpeg",
+        "inventory": "",
+        "answers": [
+            {
+                "text": "Следовать за эхом",
+                "next_route": "celestial_peak"
+            },
+            {
+                "text": "Идти напрямик",
+                "next_route": "failed_caves"
+            }
+        ]
+    },
+    "celestial_peak": {
+        "question": "Наконец, Иван достигает Небесной вершины, где его ждет последнее испытание. Здесь он должен использовать все свои навыки и знания, чтобы преодолеть последние препятствия и завершить свое путешествие.",
+        "image": "media/celestial_peak.jpeg",
+        "inventory": "",
+        "answers": [
+            {
+                "text": "Использовать воздушный змей",
+                "next_route": "success"
+            },
+            {
+                "text": "Взобраться на вершину",
+                "next_route": "failed_celestial_peak"
+            }
+        ]
+    },
+
+
         "success": {
             "question": "Поздравляю! Вы великолепны! Ваш интеллект и проницательность позволили вам преодолеть все трудности и победить. Вы доказали, что можете достичь любой цели, если будете настойчивы и решительны. Так держать! Вы - настоящий победитель!",
             "image": "media/field.jpeg",
@@ -172,7 +231,26 @@
             "image": "media/failed_ice_cave.jpeg",
             "inventory": "",
             "answers": []
+        },
+            "failed_enchanted_garden": {
+        "question": "Ты решил пройти через волшебный сад, но неожиданно на тебя напали магические растения. К сожалению, ты не смог их обойти и проиграл. Попробуй еще раз!",
+        "image": "media/failed_enchanted_garden.jpeg",
+        "inventory": "",
+        "answers": []
+        },
+        "failed_whispering_caves": {
+            "question": "Ты решил идти напрямик через шепчущие пещеры, но заблудился в их лабиринтах. К сожалению, ты не смог найти выход и проиграл. Попробуй еще раз!",
+            "image": "media/failed_whispering_caves.jpeg",
+            "inventory": "",
+            "answers": []
+        },
+        "failed_celestial_peak": {
+            "question": "Ты решил взобраться на Небесную вершину, но путь оказался слишком крутым и опасным. К сожалению, ты не смог добраться до вершины и проиграл. Попробуй еще раз!",
+            "image": "media/failed_celestial_peak.jpeg",
+            "inventory": "",
+            "answers": []
         }
+
     }
 }
 
