@@ -4,8 +4,8 @@
     "start_voice": "media/start.mp3",
     "routes": {
         "start": {
-            "question": "Ты идешь по лесу, перед тобой шесть дверей, в какую пойдешь?",
-            "image": "media/six.jpeg",
+            "question": "Ты идешь по лесу, перед тобой семь дверей, в какую пойдешь?",
+            "image": "media/seven.jpeg",
             "inventory": "У тебя в инвентаре: телепорты, воздушные змеи",
             "answers": [
                 {
@@ -34,14 +34,10 @@
                 },
                 {
                     "text": "В седьмую",
-                    "next_route": "enchanted_garden"
-                },
-                {
-                    "text": "В восьмую",
                     "next_route": "whispering_caves"
                 },
                 {
-                    "text": "В девятую",
+                    "text": "В восьмую",
                     "next_route": "celestial_peak"
                 }
             ]
