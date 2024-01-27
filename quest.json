@@ -168,7 +168,7 @@
             },
             {
                 "text": "Идти напрямик",
-                "next_route": "failed_caves"
+                "next_route": "failed_whispering_caves"
             }
         ]
     },
@@ -232,7 +232,7 @@
             "inventory": "",
             "answers": []
         },
-            "failed_enchanted_garden": {
+        "failed_enchanted_garden": {
         "question": "Ты решил пройти через волшебный сад, но неожиданно на тебя напали магические растения. К сожалению, ты не смог их обойти и проиграл. Попробуй еще раз!",
         "image": "media/failed_enchanted_garden.jpeg",
         "inventory": "",
